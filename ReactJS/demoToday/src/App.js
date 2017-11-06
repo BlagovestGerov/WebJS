@@ -3,6 +3,8 @@ import './App.css'
 
 import SingUpForm from './components/form/SingUpForm'
 import LoginForm from './components/form/LoginForm'
+import Index from './components/form/index'
+
 
 class App extends Component {
   constructor () {
@@ -29,9 +31,7 @@ class App extends Component {
   render () {
     if(this.state.token !== '' && this.state.token !== 'undefined'&& typeof(localStorage.token) !=="undefined"){
       return(
-        <div>
-          <div>Hello</div>
-        </div>
+        <Index />
       )
     }
     return(
