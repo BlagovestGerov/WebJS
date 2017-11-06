@@ -41,6 +41,10 @@ class Index extends Component{
     }
 
     render(){
+        let validName = this.state.pokemonName !==''
+        let validImg= this.state.pokemonImg.startsWith('http')
+        
+
         return(
             <form onSubmit={this.createPokemon.bind(this)}>
                 <fieldset className='App'>
@@ -50,7 +54,7 @@ class Index extends Component{
                     func={e=>{
                         this.setState({pokemonName: e.target.value})
                     }}
-                    valid
+                    valid={validName}
                     />
                     <Input
                     data='pokeImage'
@@ -58,7 +62,7 @@ class Index extends Component{
                     func={e=>{
                         this.setState({pokemonImg: e.target.value})
                     }}
-                    valid
+                    valid={validImg}
                     />
                     <Input
                     data='pokeBio'
@@ -69,6 +73,7 @@ class Index extends Component{
                     valid
                     />
                     <input
+                    style={({ "display": validName && validImg === true ? '' : 'none' })}
                     type='submit'
                     value='Create Pokemon'
                     />
