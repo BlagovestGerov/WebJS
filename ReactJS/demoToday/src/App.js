@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 
 import SingUpForm from './components/form/SingUpForm'
+import LoginForm from './components/form/LoginForm'
 
 class App extends Component {
   constructor () {
@@ -14,7 +15,13 @@ class App extends Component {
   }
 
   render () {
-    return <SingUpForm />
+    return(
+      <div>
+      return <SingUpForm />
+      <LoginForm />
+    </div>
+
+    )
   }
 }
 
