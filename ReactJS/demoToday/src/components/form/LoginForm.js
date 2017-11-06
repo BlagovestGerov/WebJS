@@ -21,7 +21,15 @@ class loginForm extends Component{
     render(){
 
         let validPassword = this.state.password !=='';
-        let validEmail = this.state.email !== '';        
+        let validEmail = this.state.email !== '';
+        let validateObj = validationFunc(
+            this.state.email,
+            this.state.email,
+            'K',
+            this.state.password,
+            this.state.password
+        );
+        
         return (
             <form onSubmit={this.submitLogin.bind(this)}>
             <fieldset className='App'>
@@ -34,7 +42,7 @@ class loginForm extends Component{
                   func={e => {
                     this.setState({ email: e.target.value })
                   }}
-                  valid={validEmail}
+                  valid={validateObj.validMail}
                 />
       
                 <Input
@@ -44,7 +52,7 @@ class loginForm extends Component{
                   func={e => {
                     this.setState({ password: e.target.value })
                   }}
-                  valid={validPassword}
+                  valid={validateObj.validPassword}
                 />
                
                 <input
