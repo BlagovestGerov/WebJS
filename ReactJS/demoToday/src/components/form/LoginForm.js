@@ -16,6 +16,28 @@ class loginForm extends Component{
 
      submitLogin(e){
          e.preventDefault();
+         let payload = {
+             email:this.state.email,
+             password: this.state.password
+         }
+         this.loginUser(payload)
+     }
+
+     loginUser(payload){
+        fetch('http://localhost:5000/auth/login', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          })
+            .then(res => {
+              return res.json()
+            })
+            .then(d => {
+                this.props.authFunc(d)
+            })
      }
 
     render(){

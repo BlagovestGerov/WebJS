@@ -12,13 +12,32 @@ class App extends Component {
       username: '',
       token: ''
     }
+
+    this.authenticate = (data)=>{
+      if(data.success){
+        this.setState({token:data.token,username:data.user.name})
+        localStorage.setItem("token", data.token)
+      }
+    }
   }
 
+  componentDidMount(){
+    this.setState({token:localStorage.getItem("token")})
+  }
+  
+
   render () {
+    if(this.state.token !== '' && this.state.token !== 'undefined'&& typeof(localStorage.token) !=="undefined"){
+      return(
+        <div>
+          <div>Hello</div>
+        </div>
+      )
+    }
     return(
       <div>
         <SingUpForm />
-      <LoginForm />
+      <LoginForm authFunc={this.authenticate} />
     </div>
 
     )
