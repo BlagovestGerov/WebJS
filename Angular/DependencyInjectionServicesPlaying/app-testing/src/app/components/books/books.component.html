@@ -1,0 +1,12 @@
+<div>Welcome to Book Store!</div>
+<div>All Books in Store</div>
+<h1>Choose a book</h1>
+<ul *ngFor="let article of books">
+  <li>{{article.title}}->{{article.publishedOn}}</li>
+
+    <!-- title: string,
+    author: string,
+    price: number,
+    publishedOn: Date -->
+  
+</ul>
