@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, } from '@angular/core';
 import { Game } from './../../game'
 
 @Component({
@@ -7,6 +7,8 @@ import { Game } from './../../game'
   styleUrls: ['./games.component.css']
 })
 export class GamesComponent implements OnInit {
+
+
 
   games : Game[];
   showContent : boolean;
@@ -39,5 +41,7 @@ export class GamesComponent implements OnInit {
   onReacted(likeOrDislike: boolean){
     likeOrDislike ? this.likes++ : this.dislikes++;
   }
+
+
 
 }

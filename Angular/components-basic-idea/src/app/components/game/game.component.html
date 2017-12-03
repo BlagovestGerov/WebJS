@@ -6,5 +6,12 @@
       </div>
   </li>
   <button (click)="react(true)" >Like</button>
-  <button (click)="react(false)" >Dislike</button>  
+  <button (click)="react(false)" >Dislike</button> 
+  <div class="zippy">
+    <div (click)="toggle()">Toggle</div>
+    <div [hidden]="!visible">
+     <img class="imgAssassian"  src="https://cdn.wccftech.com/wp-content/uploads/2017/08/Assassins-Creed-Origins-map.jpg">
+    </div>
+  
+  </div> 
 </ul>
