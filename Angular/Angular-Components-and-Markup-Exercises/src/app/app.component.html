@@ -1,0 +1,29 @@
+<div class="container">
+<div class="header">
+  <strong>Playing with components:</strong>
+  <app-header 
+  (selection)="showDetails($event)"
+  *ngFor="let article of data"
+  [incomingArticle]="article"
+  >{{article.title}}</app-header>
+</div>
+<div class="article">
+    <app-article 
+    *ngIf="selectedArticle"
+    [article]="selectedArticle" ></app-article>
+  </div>
+  <div class="show-image">
+    <app-show-image
+    *ngIf="selectedArticle"
+    [article]="selectedArticle"
+    ></app-show-image>
+  </div>
+  <div  class="deleteArticle">
+    <app-delete
+    (deleteArticleEmitter)="deleteTargetArticle($event)" 
+    *ngIf="selectedArticle"
+    [article]="selectedArticle" >
+    </app-delete>
+  </div>
+</div>
+

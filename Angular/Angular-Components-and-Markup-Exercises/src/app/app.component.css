@@ -1,0 +1,39 @@
+.container {
+    display: grid;    
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 235px 200px;
+    grid-gap: 5px;
+    grid-template-areas:
+    ". . . . h h h h . . . ."
+    "a a a a s s s s d d d d";
+    text-align: center;
+    color: white;
+
+    
+    
+    
+}
+
+.header{
+    grid-area: h;
+    background-color: #005A31;
+    border-radius: 50px;
+    padding: 20px; 
+}
+.article{
+    grid-area: a;    
+    background-color: #A8CD1B;
+    border-radius: 25px;
+    padding: 20px; 
+    overflow: scroll;
+}
+.show-image{
+    background-color: #A8CD1B; 
+    border-radius: 25px;    
+    grid-area: s;
+}
+.deleteArticle{
+    background-color: #A8CD1B;
+    border-radius: 25px;    
+    grid-area: d;
+}

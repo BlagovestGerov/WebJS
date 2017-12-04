@@ -1,0 +1,10 @@
+<div>
+<div>Title: {{article?.title | uppercase}}</div>
+<div>Author: {{article?.author}}</div>
+<div class="text">Description: {{trunk(article?.description)}}</div>  
+</div>
+<button
+*ngIf="!hide" class="Info text" (click)="readMore()" >Read More</button>
+<button
+*ngIf="hide" class="Info text" (click)="hideText()" >Hide All</button>
+

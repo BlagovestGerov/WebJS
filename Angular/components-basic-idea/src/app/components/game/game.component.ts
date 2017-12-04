@@ -13,9 +13,11 @@ import { Game } from './../../game'
 })
 export class GameComponent implements OnInit {
 
+  
   visible: boolean = true;
   @Output() open: EventEmitter<any> = new EventEmitter();
   @Output() close: EventEmitter<any> = new EventEmitter();
+
   @Input('gameProp') game : Game;
   @Output() onReacted = new EventEmitter<boolean>();
 

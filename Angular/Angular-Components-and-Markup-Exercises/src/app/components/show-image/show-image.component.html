@@ -1,0 +1,8 @@
+<div class="text">
+        <div>{{article?.title}}</div> 
+        <div >{{article?.author}}</div>  
+        <button class="img" *ngIf="!displayImage" (click)="showImage()" >Show Image</button>
+        <img class="img" *ngIf="displayImage" (click)="hideImage()" src="{{article?.link}}" alt="img">   
+        <button class="img" *ngIf="displayImage" (click)="hideImage()" >Hide Image</button>
+        
+</div>
