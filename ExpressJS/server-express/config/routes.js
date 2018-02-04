@@ -1,7 +1,10 @@
+const controllers = require('../controllers')
+
 module.exports = app =>{
-    app.get('/', (req,res)=>{
-        res.render('home/index')
-    })
+    app.get('/', controllers.home.index)
+
+    app.get('/about',controllers.home.about)
+
     app.all('*', (req,res)=>{
         res.status(404)
         res.send('404 NOT Found')

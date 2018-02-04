@@ -13,8 +13,4 @@ module.exports = app =>{
 
     app.use(express.static('./static'))
 
-
-    app.get('/', (req,res)=>{
-        res.render('home/index')
-    })
 }
