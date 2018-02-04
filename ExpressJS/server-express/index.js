@@ -9,6 +9,7 @@ require('./config/database')(config)
 const app = require('express')()
 require('./config/express')(app)
 require('./config/routes')(app)
+require('./server/config/passport')()
 app.listen(config.port)
 
 
