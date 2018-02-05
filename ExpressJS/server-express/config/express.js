@@ -1,6 +1,5 @@
 const express = require('express')
 const handlebars = require('express-handlebars')
-const express = require('express')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const session = require('express-session')
@@ -15,14 +14,24 @@ module.exports = app =>{
         extname: '.hbs'
         }))
 
-    app.set('view engine', '.hbs')
 
     app.use(cookieParser())
     app.use(bodyParser.urlencoded({ extended: true }))
-    app.use(session({ secret: '123456',
-      resave: false, saveUninitialized: false }))
+    app.use(session({ 
+       secret: '123456',
+       resave: false,
+       saveUninitialized: false }))
     app.use(passport.initialize())
     app.use(passport.session())
+
+    // app.use((req, res, next) =>{
+    //     if(req.user){
+    //         res.locals.currenUser = req.user
+    //     }
+    //     next()
+    // })
+
+    app.set('view engine', '.hbs')    
     
     app.use(express.static('./static'))
 

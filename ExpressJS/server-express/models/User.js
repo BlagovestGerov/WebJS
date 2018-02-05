@@ -12,9 +12,9 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.method({
-    authenticate: (password) => {
-    if (encryption.generateHashedPassword(this.salt, password)
-    === this.hashedPass) { return true } else { return false }
+    authenticate: function (password){
+    return encryption.generateHashedPassword(this.salt, password)
+    === this.hashedPass
     }
 })
 
@@ -24,12 +24,10 @@ const User = mongoose.model('User', userSchema)
         try{
       let users = await User.find()
     if (users.length > 0) return
-    let salt = encryption.generateSalt()
-    let hashedPass = encryption.generateHashedPassword(salt, 'Admin')
+    const salt = encryption.generateSalt()
+    const hashedPass = encryption.generateHashedPassword(salt, 'Admin')
     return User.create({
-        username: 'blagovest.gerov',
-        firstName: 'Blagovest',
-        lastName: 'Kostadinov',
+        username: 'Admin',
         salt: salt,
         hashedPass: hashedPass,
         roles: ['Admin']
