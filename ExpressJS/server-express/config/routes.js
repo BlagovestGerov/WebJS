@@ -1,10 +1,13 @@
 const controllers = require('../controllers')
+const restrictedPages = require('./auth')
 
 module.exports = app =>{
     app.get('/', controllers.home.index)
 
-    app.get('/about',controllers.home.about)
-
+    //Example how to you Authentication or Role
+    app.get('/about', restrictedPages.isAuthenticated, controllers.home.about)
+    // app.get('/about', restrictedPages.hasRole('Admin'), controllers.home.about)
+    
     app.get('/register', controllers.user.registerGet)
     app.post('/register', controllers.user.registerPost)   
     
