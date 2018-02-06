@@ -32,5 +32,9 @@ module.exports = {
             res.locals.globalError = e
             res.render('users/register')
         }
+    },
+    logout: (req, res)=>{
+        req.logout()
+        res.redirect('/')
     }
 }

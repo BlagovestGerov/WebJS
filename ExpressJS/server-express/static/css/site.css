@@ -22,3 +22,7 @@ header {
     .menu li:after {
     content: "\00a0";
     }
+
+    .error{
+        color: red;
+    }

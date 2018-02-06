@@ -6,7 +6,9 @@ module.exports = app =>{
     app.get('/about',controllers.home.about)
 
     app.get('/register', controllers.user.registerGet)
-    app.post('/register', controllers.user.registerPost)    
+    app.post('/register', controllers.user.registerPost)   
+    
+    app.post('/logout', controllers.user.logout)
 
     app.all('*', (req,res)=>{
         res.status(404)
